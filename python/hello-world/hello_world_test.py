@@ -16,6 +16,11 @@ class HelloWorldTests(unittest.TestCase):
         """ Tests function returns when called with string as parameter."""
         self.assertEqual(hello_world.hello('Arthur'), 'Hello, Arthur!')
 
+    def test_it_only_accepts_strings(self):
+        """ Test func raises Exception when called with non-string arg. """
+        with self.assertRaises(TypeError):
+            hello_world.hello(1)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -7,8 +7,10 @@ def hello(name=''):
         Returns "Hello <name>!" when param is provided.
         Else, "Hello World!"
     """
-    if name.strip() == '':
-        return 'Hello, World!'
+    if isinstance(name, str):
+        if name.strip() == '':
+            return 'Hello, World!'
+        else:
+            return 'Hello, {}!'.format(name)
     else:
-        return 'Hello, {}!'.format(name)
-
+        raise TypeError('Argument should be a string')
