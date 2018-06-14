@@ -9,19 +9,15 @@ class RNATranscriptionTests(unittest.TestCase):
 
     def test_transcribes_cytosine_to_guanine(self):
         self.assertEqual(to_rna('C'), 'G')
-        self.assertEqual(to_rna('c'), 'G')
 
     def test_transcribes_guanine_to_cytosine(self):
         self.assertEqual(to_rna('G'), 'C')
-        self.assertEqual(to_rna('g'), 'C')
 
     def test_transcribes_thymine_to_adenine(self):
         self.assertEqual(to_rna('T'), 'A')
-        self.assertEqual(to_rna('t'), 'A')
 
     def test_transcribes_adenine_to_uracil(self):
         self.assertEqual(to_rna('A'), 'U')
-        self.assertEqual(to_rna('a'), 'U')
 
     def test_transcribes_all_occurrences(self):
         self.assertEqual(to_rna('ACGTGGTCTTAA'), 'UGCACCAGAAUU')
@@ -29,6 +25,10 @@ class RNATranscriptionTests(unittest.TestCase):
     def test_handles_invalid_str_input(self):
         with self.assertRaises(ValueError):
             to_rna('1ACGTC')
+
+    def test_handles_lowercase_input(self):
+        with self.assertRaises(ValueError):
+            to_rna('agctt')
 
     def test_handles_invalid_non_str_input(self):
         with self.assertRaises(TypeError):

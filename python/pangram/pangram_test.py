@@ -53,6 +53,9 @@ class PangramTests(unittest.TestCase):
             is_pangram('the quick brown fox jumped over the lazy FX'),
             False)
 
+    def test_is_pangram_handles_invalid_input(self):
+        with self.assertRaises(TypeError):
+            is_pangram(1234)
 
 if __name__ == '__main__':
     unittest.main()
